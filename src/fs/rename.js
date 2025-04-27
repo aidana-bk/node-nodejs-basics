@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 
 const rename = async () => {
-  const filepath = "fs/files";
+  const filepath = "src/fs/files";
   try {
     await fs.access(`${filepath}/properFilename.md`);
     throw new Error("FS operation failed");
