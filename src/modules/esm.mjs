@@ -1,5 +1,4 @@
 import path from "path";
-import fs from "fs/promises";
 import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
 import "./files/c.cjs";
@@ -9,9 +8,9 @@ const random = Math.random();
 let unknownObject;
 
 if (random > 0.5) {
-  unknownObject = await fs.readFile("src/modules/files/a.json", "utf8");
+  unknownObject = await import("./files/a.json", { with: { type: "json" } });
 } else {
-  unknownObject = await fs.readFile("src/modules/files/b.json", "utf8");
+  unknownObject = await import("./files/b.json", { with: { type: "json" } });
 }
 
 console.log(`Release ${release()}`);
