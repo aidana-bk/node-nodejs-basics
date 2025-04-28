@@ -7,8 +7,8 @@ const copy = async () => {
     .then(() => {
       console.log("Copied from files to files_copy :)");
     })
-    .catch((err) => {
-      console.error("FS operation failed");
+    .catch(() => {
+      throw new Error("FS operation failed");
     });
 };
 

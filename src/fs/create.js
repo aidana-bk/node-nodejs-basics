@@ -10,7 +10,7 @@ const create = async () => {
       await fs.writeFile(filePath, "I am fresh and young");
       console.log("fresh.txt was created successfully :)");
     } else {
-      console.error("FS operation failed");
+      throw new Error("FS operation failed");
     }
   }
 };

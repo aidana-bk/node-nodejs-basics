@@ -15,10 +15,10 @@ const rename = async () => {
           console.log("File renamed successfully.");
         })
         .catch((err) => {
-          console.error("FS operation failed");
+          throw new Error("FS operation failed");
         });
     } else {
-      console.error("FS operation failed");
+      throw new Error("FS operation failed");
     }
   }
 };
