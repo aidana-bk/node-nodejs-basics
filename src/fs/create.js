@@ -1,7 +1,8 @@
 import fs from "fs/promises";
+import path from "path";
 
 const create = async () => {
-  const filePath = `src/fs/files/fresh.txt`;
+  const filePath = path.join(import.meta.dirname, "files/fresh.txt");
   try {
     await fs.access(filePath);
     throw new Error("FS operation failed");

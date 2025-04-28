@@ -1,8 +1,9 @@
 import fs from "fs/promises";
+import path from "path";
 
 const copy = async () => {
-  const originPath = "src/fs/files";
-  const copyPath = "src/fs/files_copy";
+  const originPath = path.join(import.meta.dirname, "files");
+  const copyPath = path.join(import.meta.dirname, "files_copy");
   fs.cp(originPath, copyPath, { recursive: true })
     .then(() => {
       console.log("Copied from files to files_copy :)");

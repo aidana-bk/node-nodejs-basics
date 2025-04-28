@@ -1,15 +1,16 @@
 import fs from "fs/promises";
+import path from "path";
 
 const rename = async () => {
-  const filepath = "src/fs/files";
+  const filePath = path.join(import.meta.dirname, "files");
   try {
-    await fs.access(`${filepath}/properFilename.md`);
+    await fs.access(`${filePath}/properFilename.md`);
     throw new Error("FS operation failed");
   } catch (err) {
     if (err.code === "ENOENT") {
       fs.rename(
-        `${filepath}/wrongFilename.txt`,
-        `${filepath}/properFilename.md`
+        `${filePath}/wrongFilename.txt`,
+        `${filePath}/properFilename.md`
       )
         .then(() => {
           console.log("File renamed successfully.");

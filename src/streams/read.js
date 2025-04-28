@@ -1,7 +1,8 @@
 import fs from "fs";
+import path from "path";
 
 const read = async () => {
-  const filePath = "src/streams/files/fileToRead.txt";
+  const filePath = path.join(import.meta.dirname, "files/fileToRead.txt");
   try {
     await fs.promises.access(filePath);
     const readableStream = fs.createReadStream(filePath);

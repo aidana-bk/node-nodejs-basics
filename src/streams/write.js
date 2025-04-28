@@ -1,7 +1,8 @@
 import fs from "fs";
+import path from "path";
 
 const write = async () => {
-  const filePath = "src/streams/files/fileToWrite.txt";
+  const filePath = path.join(import.meta.dirname, "files/fileToWrite.txt");
   try {
     const writableStream = fs.createWriteStream(filePath);
     process.stdin.pipe(writableStream);

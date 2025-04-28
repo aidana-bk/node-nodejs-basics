@@ -1,8 +1,12 @@
 import fs from "fs";
 import crypto from "crypto";
+import path from "path";
 
 const calculateHash = async () => {
-  const filePath = "src/hash/files/fileToCalculateHashFor.txt";
+  const filePath = path.join(
+    import.meta.dirname,
+    "files/fileToCalculateHashFor.txt"
+  );
   const hash = crypto.createHash("sha256");
   const fileStream = fs.createReadStream(filePath);
   fileStream.on("data", (chunk) => {

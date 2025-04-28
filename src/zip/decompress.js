@@ -1,9 +1,13 @@
 import fs from "fs";
 import zlib from "zlib";
+import path from "path";
 
 const decompress = async () => {
-  const inputFilePath = "src/zip/files/archive.gz";
-  const outputFilePath = "src/zip/files/fileToCompress.txt";
+  const inputFilePath = path.join(import.meta.dirname, "files/archive.gz");
+  const outputFilePath = path.join(
+    import.meta.dirname,
+    "files/fileToCompress.txt"
+  );
   try {
     const readableStream = fs.createReadStream(inputFilePath);
     const writableStream = fs.createWriteStream(outputFilePath);
